@@ -40,8 +40,10 @@ class DeliveryTest {
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), BACK_SPACE);
         $("[data-test-id='date'] input").setValue(secondMeetingDate);
         $("[class='button__text']").click();
-        $("[data-test-id=replan-notification] [class=notification__content]").shouldHave(text("У вас уже запланирована встреча на другую дату. Перепланировать?")).click();
+        $("[data-test-id=replan-notification] [class=notification__content]").shouldHave(text("У вас уже запланирована встреча на другую дату. Перепланировать?"));
+        $("[data-test-id=replan-notification] .notification__content button").click();
         $("[data-test-id=success-notification] [class=notification__content]").shouldHave(text("Встреча успешно запланирована на\n" + secondMeetingDate));
+
 
     }
 }
